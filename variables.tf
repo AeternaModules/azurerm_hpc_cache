@@ -61,8 +61,8 @@ EOT
     subnet_id                                  = string
     automatically_rotate_key_to_latest_enabled = optional(bool)
     key_vault_key_id                           = optional(string)
-    mtu                                        = optional(number, 1500)
-    ntp_server                                 = optional(string, "time.windows.com")
+    mtu                                        = optional(number) # Default: 1500
+    ntp_server                                 = optional(string) # Default: "time.windows.com"
     tags                                       = optional(map(string))
     default_access_policy = optional(object({
       access_rule = list(object({
