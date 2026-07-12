@@ -1,3 +1,7 @@
+output "hpc_caches_id" {
+  description = "Map of id values across all hpc_caches, keyed the same as var.hpc_caches"
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.id }
+}
 output "hpc_caches_automatically_rotate_key_to_latest_enabled" {
   description = "Map of automatically_rotate_key_to_latest_enabled values across all hpc_caches, keyed the same as var.hpc_caches"
   value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.automatically_rotate_key_to_latest_enabled }
