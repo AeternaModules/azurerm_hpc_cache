@@ -112,7 +112,7 @@ EOT
   validation {
     condition = alltrue([
       for k, v in var.hpc_caches : (
-        length(v.default_access_policy.access_rule) >= 1 && length(v.default_access_policy.access_rule) <= 3
+        v.default_access_policy == null || (length(v.default_access_policy.access_rule) >= 1 && length(v.default_access_policy.access_rule) <= 3)
       )
     ])
     error_message = "Each access_rule list must contain between 1 and 3 items"
