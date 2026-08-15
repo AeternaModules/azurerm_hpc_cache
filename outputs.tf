@@ -12,29 +12,29 @@ output "hpc_caches_cache_size_in_gb" {
 }
 output "hpc_caches_default_access_policy" {
   description = "Map of default_access_policy values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.default_access_policy if v.default_access_policy != null && length(v.default_access_policy) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.default_access_policy) if v.default_access_policy != null && length(v.default_access_policy) > 0 }
 }
 output "hpc_caches_directory_active_directory" {
   description = "Map of directory_active_directory values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.directory_active_directory if v.directory_active_directory != null && length(v.directory_active_directory) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.directory_active_directory) if v.directory_active_directory != null && length(v.directory_active_directory) > 0 }
   sensitive   = true
 }
 output "hpc_caches_directory_flat_file" {
   description = "Map of directory_flat_file values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.directory_flat_file if v.directory_flat_file != null && length(v.directory_flat_file) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.directory_flat_file) if v.directory_flat_file != null && length(v.directory_flat_file) > 0 }
 }
 output "hpc_caches_directory_ldap" {
   description = "Map of directory_ldap values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.directory_ldap if v.directory_ldap != null && length(v.directory_ldap) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.directory_ldap) if v.directory_ldap != null && length(v.directory_ldap) > 0 }
   sensitive   = true
 }
 output "hpc_caches_dns" {
   description = "Map of dns values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.dns if v.dns != null && length(v.dns) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.dns) if v.dns != null && length(v.dns) > 0 }
 }
 output "hpc_caches_identity" {
   description = "Map of identity values across all hpc_caches, keyed the same as var.hpc_caches"
-  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_hpc_cache.hpc_caches : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "hpc_caches_key_vault_key_id" {
   description = "Map of key_vault_key_id values across all hpc_caches, keyed the same as var.hpc_caches"
